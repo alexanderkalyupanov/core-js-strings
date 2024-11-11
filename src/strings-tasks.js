@@ -350,13 +350,11 @@ function isPalindrome(str) {
 function findLongestWord(sentence) {
   const words = sentence.split(' ');
   let longest = '';
-
   for (let i = 0; i < words.length; i += 1) {
     if (words[i].length > longest.length) {
       longest = words[i];
     }
   }
-
   return longest;
 }
 
@@ -370,8 +368,10 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const mas = str.split(' ');
+  const masWords = mas.map((word) => word.split('').reverse().join(''));
+  return masWords.join(' ');
 }
 
 /**
@@ -385,8 +385,16 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === str[i].toLowerCase()) {
+      newStr += str[i].toUpperCase();
+    } else {
+      newStr += str[i].toLowerCase();
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -452,8 +460,8 @@ function unbracketTag(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
